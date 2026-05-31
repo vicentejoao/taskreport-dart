@@ -98,7 +98,9 @@ void main() {
   statusEncontrados.forEach(print);
   print('');
   print('Tarefas com dados incompletos:');
-  printInconsistencias();
+  for (final int id in Tarefa.inconsistenciasPorId.keys) {
+    print('ID $id - ${tarefas.firstWhere((t) => t.id == id).titulo}');
+  }
 }
 
 void printTitulo(Tarefa tarefa) {
