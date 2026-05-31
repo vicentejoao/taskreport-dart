@@ -62,16 +62,6 @@ class Tarefa extends Item {
     return horasConvertido;
   }
 
-  Tarefa({
-    required int id,
-    required String titulo,
-    required this.responsavel,
-    required this.status,
-    required this.prioridade,
-    required this.valor,
-    required this.horas,
-  }) : super(id, titulo);
-
   Tarefa.fromMap(Map<String, dynamic> map)
     : responsavel = _lerCampoString(map, 'responsavel', 'Não informado'),
       status = _lerCampoString(map, 'status', 'Sem status'),
@@ -82,6 +72,12 @@ class Tarefa extends Item {
 
   @override
   String toString() {
-    return "$id - $titulo - $responsavel - $status - $prioridade - $valor - $horas";
+    return '''ID: $id
+Título: $titulo
+Responsável: $responsavel
+Status: $status
+Prioridade: $prioridade
+Valor: R\$ $valor
+Horas: $horas''';
   }
 }
