@@ -1,7 +1,6 @@
 # Kanban TaskReport-Dart
 
 ## Backlog
-- Gravar vídeo
 
 ## 📋 A Fazer
 
@@ -36,4 +35,5 @@
 	- [x] Status encontrados nas tarefas
 	- [x] Id e título de tarefas com dados incompletos ou inconsistentes
 - [x] Revisar código e fazer correções
+- [x] Gravar vídeo
 - [x] Atualizar README

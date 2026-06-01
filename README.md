@@ -7,6 +7,7 @@ O TaskReport Dart é um simulador de tratamento de dados de tarefas em Dart.
 O miniprojeto simula o retorno de uma API por meio de uma lista de mapas, tratando os dados e os transformando em objetos, e gerando relatórios com base neles.
 
 Repositório GitHub: https://github.com/vicentejoao/taskreport-dart
+Vídeo: https://drive.google.com/file/d/12I_9vl8mo_iDlcAM69H8ldTTpMvGNWfU/view?usp=sharing
 
 ## Objetivo 
 
