@@ -8,8 +8,14 @@ class Tarefa extends Item {
   int horas;
 
   static final Map<int, List<String>> _inconsistenciasPorId = {};
-  static Map<int, List<String>> get inconsistenciasPorId =>
-      _inconsistenciasPorId;
+
+  Tarefa.fromMap(Map<String, dynamic> map)
+    : responsavel = _lerCampoString(map, 'responsavel', 'Não informado'),
+      status = _lerCampoString(map, 'status', 'Sem status'),
+      prioridade = _lerCampoString(map, 'prioridade', 'Sem prioridade'),
+      valor = _lerValor(map, 0),
+      horas = _lerHoras(map, 0),
+      super(map['id'] as int, _lerCampoString(map, 'titulo', 'Sem título'));
 
   static void _addInconsistencia(int id, String campo, String inconsistencia) {
     if (_inconsistenciasPorId.containsKey(id)) {
@@ -64,13 +70,8 @@ class Tarefa extends Item {
     return horasConvertido;
   }
 
-  Tarefa.fromMap(Map<String, dynamic> map)
-    : responsavel = _lerCampoString(map, 'responsavel', 'Não informado'),
-      status = _lerCampoString(map, 'status', 'Sem status'),
-      prioridade = _lerCampoString(map, 'prioridade', 'Sem prioridade'),
-      valor = _lerValor(map, 0),
-      horas = _lerHoras(map, 0),
-      super(map['id'] as int, _lerCampoString(map, 'titulo', 'Sem título'));
+  static Map<int, List<String>> get inconsistenciasPorId =>
+      _inconsistenciasPorId;
 
   @override
   String toString() {
