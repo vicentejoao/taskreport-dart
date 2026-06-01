@@ -118,10 +118,11 @@ void printInconsistencias() {
 Map<String, int> calcularHorasPorStatus(List<Tarefa> tarefas) {
   Map<String, int> horasPorStatus = {};
   for (Tarefa t in tarefas) {
-    horasPorStatus.update(t.status, (self) {
-      self += t.horas;
-      return self;
-    }, ifAbsent: () => t.horas);
+    horasPorStatus.update(
+      t.status,
+      (horas) => horas += t.horas,
+      ifAbsent: () => t.horas,
+    );
   }
   return horasPorStatus;
 }
