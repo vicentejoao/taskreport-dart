@@ -12,10 +12,11 @@ class Tarefa extends Item {
       _inconsistenciasPorId;
 
   static void _addInconsistencia(int id, String campo, String inconsistencia) {
-    _inconsistenciasPorId.update(id, (self) {
-      self.add(inconsistencia);
-      return self;
-    }, ifAbsent: () => [inconsistencia]);
+    if (_inconsistenciasPorId.containsKey(id)) {
+      _inconsistenciasPorId[id]!.add(inconsistencia);
+    } else {
+      _inconsistenciasPorId[id] = [inconsistencia];
+    }
   }
 
   static String _lerCampoString(
