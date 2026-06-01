@@ -8,7 +8,8 @@ class Tarefa extends Item {
   int horas;
 
   static final Map<int, List<String>> _inconsistenciasPorId = {};
-  static Map<int, List<String>> inconsistenciasPorId = _inconsistenciasPorId;
+  static Map<int, List<String>> get inconsistenciasPorId =>
+      _inconsistenciasPorId;
 
   static void _addInconsistencia(int id, String campo, String inconsistencia) {
     _inconsistenciasPorId.update(id, (self) {
