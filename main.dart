@@ -38,7 +38,7 @@ void main() {
   //--------------------------------------------------------------------/
   double valorConcluidas = concluidas
       .map((t) => t.valor)
-      .fold<double>(0, (ant, atual) => ant + atual);
+      .reduce((ant, atual) => ant + atual);
   print(
     'Total de tarefas concluídas: R\$ ${valorConcluidas.toStringAsFixed(2)}',
   );
@@ -48,9 +48,7 @@ void main() {
     print("Não existem tarefas pendentes para calcular média.");
   } else {
     pendentesValorMedio =
-        pendentes
-            .map((t) => t.valor)
-            .fold<double>(0, (ant, atual) => ant + atual) /
+        pendentes.map((t) => t.valor).reduce((ant, atual) => ant + atual) /
         pendentes.length;
     print(
       'Média de valor das tarefas pendentes: R\$ ${pendentesValorMedio.toStringAsFixed(2)}',
