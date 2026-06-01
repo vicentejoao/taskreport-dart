@@ -1,11 +1,19 @@
 import 'dados_tarefas.dart';
+import 'item.dart';
 import 'tarefa.dart';
 
 void main() {
-  List<Tarefa> tarefas = dadosTarefas.map(Tarefa.fromMap).toList();
+  // Variável 'tarefas' do tipo List<Item> apenas para demonstrar polimorfismo.
+  // O método toString da classe Tarefa é que vai ser chamado pela função print
+  List<Item> tarefas = dadosTarefas.map(Tarefa.fromMap).toList();
   print('TAREFAS CONVERTIDAS\n');
   tarefas.forEach(print);
   print('');
+
+  // Caso esse cast não falhe, o dart já sabe que daqui em diante
+  // pode considerar todas as referências a variável 'tarefas' como uma List<Tarefa>,
+  // o que nos permite acessar os attributos da classe Tarefa nos objetos da lista
+  tarefas as List<Tarefa>;
 
   List<Tarefa> concluidas = tarefas
       .where((t) => t.status == 'concluída')
