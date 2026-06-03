@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'item.dart';
 
 class Tarefa extends Item {
@@ -71,7 +73,7 @@ class Tarefa extends Item {
   }
 
   static Map<int, List<String>> get inconsistenciasPorId =>
-      _inconsistenciasPorId;
+      UnmodifiableMapView(_inconsistenciasPorId);
 
   @override
   String toString() {
