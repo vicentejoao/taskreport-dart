@@ -51,16 +51,11 @@ void main() {
     'Total de tarefas concluídas: R\$ ${valorConcluidas.toStringAsFixed(2)}',
   );
 
-  double pendentesValorMedio = 0;
-  if (pendentes.isEmpty) {
-    print("Não existem tarefas pendentes para calcular média.");
-  } else {
+  double? pendentesValorMedio;
+  if (pendentes.isNotEmpty) {
     pendentesValorMedio =
         pendentes.map((t) => t.valor).reduce((ant, atual) => ant + atual) /
         pendentes.length;
-    print(
-      'Média de valor das tarefas pendentes: R\$ ${pendentesValorMedio.toStringAsFixed(2)}',
-    );
   }
   print('');
 
@@ -94,7 +89,7 @@ void main() {
     'Valor total das concluídas: R\$ ${valorConcluidas.toStringAsFixed(2)}',
   );
   print(
-    'Média de valor das pendentes: R\$ ${pendentesValorMedio.toStringAsFixed(2)}',
+    'Média de valor das pendentes: ${pendentesValorMedio == null ? "Não existem tarefas pendentes para calcular média." : "R\$ ${pendentesValorMedio.toStringAsFixed(2)}"}',
   );
   print(
     'Total de horas concluídas: ${concluidas.map((t) => t.horas).reduce((ant, atual) => ant + atual)}',
